@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 300,
+    "title": "Healthy person by State in Australia 2019",
+    "projection":{"type": "equirectangular"},
+    "data":{
+        "url": "https://raw.githubusercontent.com/RogueTrader7/3179-Vis/main/Ausmap.json",
+          "format":{"type":"topojson", "feature": "AUS_2016_AUS"}
+    },
+    "transform": [
+        {
+            "lookup": "State",
+            "from": {
+                "data": {
+                    "url": "https://github.com/RogueTrader7/3179-Vis/blob/main/Physical%20summary_%20by%20region.csv"
+        },
+            "key": "State",
+            "fields": ["Healthy"]
+      }
+        },
+        {"calculate": "datum.Active + 0.1", "as": "population"}
+    ],
+    "mark":{"type": "geoshape"},
+    "encoding": {
+        "color":{
+            "field":"Healthy",
+            "type": "quantitative"
+        },
+        "tooltip":[
+            {"field":"properties.NAME","type": "nominal","title":"State"},
+            {"field":"Healthy","type": "quantitative"}
+        ]
+    
+    }
+}
