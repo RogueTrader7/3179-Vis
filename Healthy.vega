@@ -5,12 +5,12 @@
     "title": "Healthy person by State in Australia 2019",
     "projection":{"type": "equirectangular"},
     "data":{
-        "url": "https://raw.githubusercontent.com/RogueTrader7/3179-Vis/main/Ausmap.json",
-          "format":{"type":"topojson", "feature": "AUS_2016_AUS"}
+        "url": "https://raw.githubusercontent.com/RogueTrader7/3179-Vis/main/output.json",
+          "format":{"type":"topojson", "feature": "ACT_STATE_POLYGON_shp"}
     },
     "transform": [
         {
-            "lookup": "State",
+            "lookup": "properties.State",
             "from": {
                 "data": {
                     "url": "https://github.com/RogueTrader7/3179-Vis/blob/main/Physical%20summary_%20by%20region.csv"
@@ -25,10 +25,11 @@
     "encoding": {
         "color":{
             "field":"Healthy",
-            "type": "quantitative"
+            "type": "quantitative",
+            "scale": {"domain":[100000,4000000]}
         },
         "tooltip":[
-            {"field":"properties.NAME","type": "nominal","title":"State"},
+            {"field":"properties.State","type": "nominal","title":"State"},
             {"field":"Healthy","type": "quantitative"}
         ]
     
