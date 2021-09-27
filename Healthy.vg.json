@@ -5,7 +5,7 @@
     "title": "Healthy person by State in Australia 2019",
     "projection":{"type": "equirectangular"},
     "data":{
-        "url": "https://github.com/RogueTrader7/3179-Vis/blob/fc00bcd8269e4f57b195aa429a345833c2e9228f/STE11aAust.topojson",
+        "url": "https://github.com/RogueTrader7/3179-Vis/blob/main/STE11aAust.topojson",
           "format":{"type":"topojson", "feature": "STE11aAust"}
     },
     "transform": [
@@ -13,7 +13,7 @@
             "lookup": "properties.State",
             "from": {
                 "data": {
-                    "url": "https://github.com/RogueTrader7/3179-Vis/blob/main/Physical%20summary_%20by%20region.csv"
+                    "url": "https://raw.githubusercontent.com/RogueTrader7/3179-Vis/main/Physical%20summary_%20by%20region.csv"
         },
             "key": "State",
             "fields": ["2019"]
